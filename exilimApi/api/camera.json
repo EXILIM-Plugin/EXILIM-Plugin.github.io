@@ -1,0 +1,94 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "EXILIMカメラのズーム操作機能を提供するAPI。",
+        "version": "2.0.0",
+        "title": "Camera Profile"
+    },
+    "consumes": [
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "paths": {
+        "/zoom": {
+            "put": {
+                "summary": "EXILIMカメラのズーム操作を実行する",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "serviceId",
+                        "description": "サービスID。取得対象デバイス",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "direction",
+                        "description": "ズーム方向<br>in:ズームイン。TELE方向指定<br>out:ズームアウト。WIDE方向指定",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "in",
+                            "out"
+                        ]
+                    },
+                    {
+                        "name": "movement",
+                        "description": "ズーム動作指定<br>in-start:ズーム動作開始。in-stopが指定されるまでズーム動作は続く。<br>in-stop:ズーム動作終了。in-startで開始した動作を終了させる。<br>1shot:1段階ズームを実行する。<br>max:最大値になるまでズーム動作を続ける。",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "in-start",
+                            "in-stop",
+                            "1shot",
+                            "max"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResponse"
+                        }
+                    }
+                },
+                "x-type": "one-shot"
+            }
+        }
+    },
+    "definitions": {
+        "CommonResponse": {
+            "type": "object",
+            "required": [
+                "product",
+                "result",
+                "version"
+            ],
+            "properties": {
+                "result": {
+                    "type": "integer",
+                    "description": "0: 正常応答<br>0以外: 異常応答",
+                    "title": "処理結果"
+                },
+                "product": {
+                    "type": "string",
+                    "description": "",
+                    "title": "DeviceConnectシステムの名前"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "",
+                    "title": "DeviceConnectシステムのバージョン名"
+                },
+                "hmac": {
+                    "type": "string",
+                    "title": "署名",
+                    "description": "レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。"
+                }
+            }
+        }
+    }
+}
