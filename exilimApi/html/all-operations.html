@@ -16,296 +16,10 @@ EXILIMカメラのズーム操作機能を提供するAPI。
 <h2 class="profile-title">Operations</h2>
 <div class="profile-operations-content">
 <ul>
-    <li><a href="#get--gotapi-camera-movieoption">GET /gotapi/camera/movieOption</a></li>
-    <li><a href="#put--gotapi-camera-movieoption">PUT /gotapi/camera/movieOption</a></li>
-    <li><a href="#get--gotapi-camera-photooption">GET /gotapi/camera/photoOption</a></li>
-    <li><a href="#put--gotapi-camera-photooption">PUT /gotapi/camera/photoOption</a></li>
-    <li><a href="#get--gotapi-camera-recordingcapacity">GET /gotapi/camera/recordingCapacity</a></li>
-    <li><a href="#get--gotapi-camera-version">GET /gotapi/camera/version</a></li>
     <li><a href="#put--gotapi-camera-zoom">PUT /gotapi/camera/zoom</a></li>
 </ul>
 </div>
 
-<a name="get--gotapi-camera-movieoption" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">GET /gotapi/camera/movieOption</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">動画の撮影設定を取得する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td>撮影するカメラを識別するID</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="2" class="mono">mode</td><td>string</td><td>No</td><td><b>動画撮影モード</b><br>設定されている動画撮影モード</td></tr>
-        <tr><td colspan="2" class="mono">highSpeedMode</td><td>string</td><td>No</td><td><b>ハイスピード撮影モード</b><br>設定されているハイスピード撮影モード</td></tr>
-        <tr><td colspan="2" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="2" class="mono">recordTime</td><td>string</td><td>No</td><td><b>撮影時間設定</b><br>設定されている撮影時間設定</td></tr>
-        <tr><td colspan="2" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-        <tr><td colspan="2" class="mono">pastRecordTime</td><td>integer</td><td>No</td><td><b>パスト動画撮影時間</b><br>設定されているパスト動画撮影時間(秒)</td></tr>
-        <tr><td colspan="2" class="mono">Range</td><td>object</td><td>No</td><td><b>サポートするパラメータの範囲</b><br></td></tr>
-        <tr><td></td><td colspan="1" class="mono">movieFps</td><td>array(integer)</td><td>No</td><td><b>動画fps</b><br>設定可能な動画fps一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">imageQuality</td><td>array(string)</td><td>No</td><td><b>動画画質</b><br>設定可能な動画画質一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">mode</td><td>array(string)</td><td>No</td><td><b>動画撮影モード</b><br>設定可能な動画撮影モード一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">highSpeedMode</td><td>array(string)</td><td>No</td><td><b>ハイスピード撮影モード</b><br>設定可能なハイスピード撮影モード一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">pastRecordMode</td><td>array(string)</td><td>No</td><td><b>パスト動画撮影モード</b><br>設定可能なパスト動画撮影モード一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">pastRecordTime</td><td>array(integer)</td><td>No</td><td><b>パスト動画撮影時間</b><br>設定可能なパスト動画撮影時間一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">recordTime</td><td>array(integer)</td><td>No</td><td><b>撮影時間設定</b><br>撮影時間設定一覧</td></tr>
-        <tr><td colspan="2" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="2" class="mono">imageQuality</td><td>string</td><td>No</td><td><b>動画画質</b><br>設定されている動画画質</td></tr>
-        <tr><td colspan="2" class="mono">pastRecordMode</td><td>string</td><td>No</td><td><b>パスト動画撮影モード</b><br>設定されているパスト動画撮影モード</td></tr>
-        <tr><td colspan="2" class="mono">movieFps</td><td>integer</td><td>No</td><td><b>動画fps</b><br>設定されている動画fps</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "Example System",
-  "version" : "1.0.0",
-  "movieFps" : 30,
-  "imageQuality" : "normal",
-  "mode" : "SPORTS Type1",
-  "highSpeedMode" : "highspeed",
-  "pastRecordMode" : "past-on",
-  "pastRecordTime" : 2,
-  "recordTime" : 5,
-  "range" : {
-    "movieFps" : [ 30, 60, 120, 240, 480 ],
-    "imageQuality" : [ "normal", "economy" ],
-    "mode" : [ "SPORTS Type1", "SPORTS Type2", "SPORTS Type3", "SPORTS Type4", "SPORTS Type5", "SPORTS Type6", "SPORTS Type7", "SPORTS Type8" ],
-    "highSpeedMode" : [ "highspeed", "normalspeed" ],
-    "pastRecordMode" : [ "past-on", "past-off" ],
-    "pastRecordTime" : [ 0, 1, 2, 3, 4, 5 ],
-    "recordTime" : [ 0, 5, 10 ]
-  }
-}</pre></div>
-    </div>
-</div>
-<a name="put--gotapi-camera-movieoption" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">PUT /gotapi/camera/movieOption</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">動画の撮影設定行う</div>
-        <div class="operation-title">Description</div>
-        <div class="operation-content">fps設定は動画サイズと連動して設定可能範囲が変わる。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td>撮影するカメラを識別するID</td></tr>
-                <tr><td class="mono">movieFps</td><td>integer</td><td>No</td><td>動画fps</td></tr>
-                <tr><td class="mono">imageQuality</td><td>string</td><td>No</td><td>動画画質</td></tr>
-                <tr><td class="mono">mode</td><td>string</td><td>No</td><td>動画撮影モード</td></tr>
-                <tr><td class="mono">highSpeedMode</td><td>string</td><td>No</td><td>ハイスピード撮影モード</td></tr>
-                <tr><td class="mono">pastRecordMode</td><td>string</td><td>No</td><td>パスト動画撮影モード</td></tr>
-                <tr><td class="mono">pastRecordTime</td><td>integer</td><td>No</td><td>パスト動画撮影時間(秒)</td></tr>
-                <tr><td class="mono">recordTime</td><td>integer</td><td>No</td><td>撮影時間設定</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-    </div>
-</div>
-<a name="get--gotapi-camera-photooption" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">GET /gotapi/camera/photoOption</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">静止画の撮影設定を取得する。</div>
-        <div class="operation-title">Description</div>
-        <div class="operation-content">静止画,動画共通の項目を含む</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td>撮影するカメラを識別するID</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="2" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="2" class="mono">evShift</td><td>float</td><td>No</td><td><b>EVシフト</b><br>EVシフトの値</td></tr>
-        <tr><td colspan="2" class="mono">whiteBalance</td><td>string</td><td>No</td><td><b>ホワイトバランス</b><br>設定されているホワイトバランス</td></tr>
-        <tr><td colspan="2" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-        <tr><td colspan="2" class="mono">Range</td><td>object</td><td>No</td><td><b>サポートするパラメータの範囲</b><br></td></tr>
-        <tr><td></td><td colspan="1" class="mono">whiteBalance</td><td>array(string)</td><td>No</td><td><b>ホワイトバランス</b><br>設定可能なホワイトバランス一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">evShift</td><td>array(float)</td><td>No</td><td><b>EVシフト</b><br>設定可能なEVシフト一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">mirrorImage</td><td>array(integer)</td><td>No</td><td><b>鏡面反転</b><br>設定可能な鏡面反転一覧</td></tr>
-        <tr><td></td><td colspan="1" class="mono">selfTimer</td><td>array(integer)</td><td>No</td><td><b>セルフタイマー</b><br>設定可能なセルフタイマー一覧</td></tr>
-        <tr><td colspan="2" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="2" class="mono">selfTimer</td><td>float</td><td>No</td><td><b>セルフタイマー</b><br>設定されているセルフタイマー</td></tr>
-        <tr><td colspan="2" class="mono">mirrorImage</td><td>string</td><td>No</td><td><b>鏡面反転</b><br>設定されている鏡面反転</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : "AWB",
-  "product" : "Example System",
-  "version" : "1.0.0",
-  "whiteBalance" : "AWV",
-  "evShift" : -0.7,
-  "mirroImage" : "mirror",
-  "selfTimer" : 5,
-  "range" : {
-    "whiteBalance" : [ "AWB", "Daylight", "Overcast", "Shade", "DayWhiteFluor", "DaylightFluor", "Tungsten" ],
-    "evShift" : [ -2.0, -1.7, -1.3, -1.0, -0.7, -0.3, 0.0, 0.3, 0.7, 1.0, 1.3, 1.7, 2.0 ],
-    "mirrorImage" : [ "normal", "mirror" ],
-    "selfTimer" : [ 0, 5, 10 ]
-  }
-}</pre></div>
-    </div>
-</div>
-<a name="put--gotapi-camera-photooption" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">PUT /gotapi/camera/photoOption</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">静止画の撮影設定を行う</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td>撮影するカメラを識別するID</td></tr>
-                <tr><td class="mono">whiteBalance</td><td>string</td><td>No</td><td>ホワイトバランス</td></tr>
-                <tr><td class="mono">evShift</td><td>float</td><td>No</td><td>EVシフト</td></tr>
-                <tr><td class="mono">mirrorImage</td><td>string</td><td>No</td><td>鏡面反転</td></tr>
-                <tr><td class="mono">selfTimer</td><td>long</td><td>No</td><td>セルフタイマー</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-    </div>
-</div>
-<a name="get--gotapi-camera-recordingcapacity" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">GET /gotapi/camera/recordingCapacity</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">スマートデバイスからサポートしている撮影可能枚数と撮影可能時間を取得する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td>カメラを識別するID</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">snapShotRecordingCapacity</td><td>integer</td><td>No</td><td><b>撮影可能枚数</b><br></td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">movieRecordingCapacity</td><td>integer</td><td>No</td><td><b>撮影可能時間(秒)</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "EXILIM",
-  "version" : "2.0.0",
-  "snapShotRecordingCapacity" : [ 10 ],
-  "movieRecordingCapacity" : [ 1000 ]
-}</pre></div>
-    </div>
-</div>
-<a name="get--gotapi-camera-version" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">GET /gotapi/camera/version</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">カメラのバージョン情報を取得する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td>撮影するカメラを識別するID</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">fwVersion</td><td>string</td><td>No</td><td><b>カメラのバージョン情報</b><br>カメラのバージョン情報 x.x.x形式</td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-    </div>
-</div>
 <a name="put--gotapi-camera-zoom" />
 <div class="operation-docs-block">
     <div class="operation-docs-header">PUT /gotapi/camera/zoom</div>
@@ -320,7 +34,6 @@ EXILIMカメラのズーム操作機能を提供するAPI。
             <tbody>
                 <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
                 <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象デバイス</td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td>撮影するカメラを識別するID</td></tr>
                 <tr><td class="mono">direction</td><td>string</td><td>Yes</td><td>ズーム方向<br>in:ズームイン。TELE方向指定<br>out:ズームアウト。WIDE方向指定</td></tr>
                 <tr><td class="mono">movement</td><td>string</td><td>Yes</td><td>ズーム動作指定<br>in-start:ズーム動作開始。in-stopが指定されるまでズーム動作は続く。<br>in-stop:ズーム動作終了。in-startで開始した動作を終了させる。<br>1shot:1段階ズームを実行する。<br>max:最大値になるまでズーム動作を続ける。</td></tr>
             </tbody>
@@ -351,78 +64,30 @@ EXILIMカメラのWiFi接続設定を行なう
 <h2 class="profile-title">Operations</h2>
 <div class="profile-operations-content">
 <ul>
-    <li><a href="#get--gotapi-cameraregister-connectioninfo">GET /gotapi/cameraRegister/connectionInfo</a></li>
-    <li><a href="#delete--gotapi-cameraregister-discoverip">DELETE /gotapi/cameraRegister/discoverIp</a></li>
-    <li><a href="#put--gotapi-cameraregister-discoverip">PUT /gotapi/cameraRegister/discoverIp</a></li>
-    <li><a href="#get--gotapi-cameraregister-ondiscover">GET /gotapi/cameraRegister/onDiscover</a></li>
-    <li><a href="#delete--gotapi-cameraregister-ondiscover">DELETE /gotapi/cameraRegister/onDiscover</a></li>
-    <li><a href="#put--gotapi-cameraregister-ondiscover">PUT /gotapi/cameraRegister/onDiscover</a></li>
-    <li><a href="#get--gotapi-cameraregister-registerip">GET /gotapi/cameraRegister/registerIp</a></li>
-    <li><a href="#delete--gotapi-cameraregister-registerip">DELETE /gotapi/cameraRegister/registerIp</a></li>
     <li><a href="#put--gotapi-cameraregister-registerip">PUT /gotapi/cameraRegister/registerIp</a></li>
+    <li><a href="#delete--gotapi-cameraregister-registerip">DELETE /gotapi/cameraRegister/registerIp</a></li>
+    <li><a href="#get--gotapi-cameraregister-registerip">GET /gotapi/cameraRegister/registerIp</a></li>
 </ul>
 </div>
 
-<a name="get--gotapi-cameraregister-connectioninfo" />
+<a name="put--gotapi-cameraregister-registerip" />
 <div class="operation-docs-block">
-    <div class="operation-docs-header">GET /gotapi/cameraRegister/connectionInfo</div>
+    <div class="operation-docs-header">PUT /gotapi/cameraRegister/registerIp</div>
     <div class="operation-docs-body">
         <div class="operation-title">API Pattern</div>
         <div class="operation-content">one-shot</div>
         <div class="operation-title">Summary</div>
-        <div class="operation-content">EXILIMカメラの接続情報を取得する</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">ip</td><td>string</td><td>Yes</td><td>カメラのIPアドレス。</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-        <tr><td colspan="1" class="mono">info</td><td>object</td><td>Yes</td><td><b>接続情報</b><br>対象カメラの接続位置が、どのグループの何番目かを示す。カメラから送られるJSON形式のデータをそのまま取得する。</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "EXILIM",
-  "version" : "2.0.0",
-  "info" : {
-    "Group" : "A",
-    "Sequence" : 1
-  }
-}</pre></div>
-    </div>
-</div>
-<a name="delete--gotapi-cameraregister-discoverip" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">DELETE /gotapi/cameraRegister/discoverIp</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">streaming</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">カメラのサーチをを終了する</div>
+        <div class="operation-content">EXILIMカメラのIPアドレスと対応する名前を登録する</div>
         <div class="operation-title">Description</div>
-        <div class="operation-content">カメラのサーチをを終了する</div>
+        <div class="operation-content">IPのみの登録の場合は接続しているカメラから情報を取得する。ここで登録された名前はMediaStreamRecordingプロファイルで使用される。</div>
         <div class="operation-title">Parameters</div>
         <div class="operation-content">
         <table>
             <tbody>
                 <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td></td></tr>
+                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象デバイス</td></tr>
+                <tr><td class="mono">ip</td><td>string</td><td>Yes</td><td>カメラのIPアドレス</td></tr>
+                <tr><td class="mono">cameraName</td><td>string</td><td>No</td><td>カメラの名前。省略した場合はカメラから情報取得する。</td></tr>
             </tbody>
         </table>
         </div>
@@ -440,99 +105,21 @@ EXILIMカメラのWiFi接続設定を行なう
         </div>
     </div>
 </div>
-<a name="put--gotapi-cameraregister-discoverip" />
+<a name="delete--gotapi-cameraregister-registerip" />
 <div class="operation-docs-block">
-    <div class="operation-docs-header">PUT /gotapi/cameraRegister/discoverIp</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">streaming</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">カメラのサーチを開始する</div>
-        <div class="operation-title">Description</div>
-        <div class="operation-content">カメラのサーチを開始する</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">type</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">IntervalSec</td><td>integer</td><td>No</td><td></td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-    </div>
-</div>
-<a name="get--gotapi-cameraregister-ondiscover" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">GET /gotapi/cameraRegister/onDiscover</div>
+    <div class="operation-docs-header">DELETE /gotapi/cameraRegister/registerIp</div>
     <div class="operation-docs-body">
         <div class="operation-title">API Pattern</div>
         <div class="operation-content">one-shot</div>
         <div class="operation-title">Summary</div>
-        <div class="operation-content">カメラ接続確認通知イベントを取得する。</div>
+        <div class="operation-content">EXILIMカメラのIPアドレスを登録解除する</div>
         <div class="operation-title">Parameters</div>
         <div class="operation-content">
         <table>
             <tbody>
                 <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="2" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="2" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="2" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-        <tr><td colspan="2" class="mono">register</td><td>object</td><td>Yes</td><td><b>カメラ接続情報</b><br>カメラのネットワーク情報</td></tr>
-        <tr><td></td><td colspan="1" class="mono">ip</td><td>string</td><td>Yes</td><td><b>IPアドレス</b><br>カメラのIPアドレス</td></tr>
-        <tr><td></td><td colspan="1" class="mono">cameraName</td><td>string</td><td>Yes</td><td><b>ターゲット名</b><br>登録されているカメラの名前</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "Example System",
-  "version" : "1.0.0",
-  "register" : {
-    "ip" : "192.168.100.2",
-    "cameraName" : "FR100-ABCDEF"
-  }
-}</pre></div>
-    </div>
-</div>
-<a name="delete--gotapi-cameraregister-ondiscover" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">DELETE /gotapi/cameraRegister/onDiscover</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">event</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">カメラ接続確認通知イベントを停止する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
+                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象デバイス</td></tr>
+                <tr><td class="mono">ip</td><td>string</td><td>No</td><td>カメラのIPアドレス。省略した場合は全解除となる。</td></tr>
             </tbody>
         </table>
         </div>
@@ -548,73 +135,6 @@ EXILIMカメラのWiFi接続設定を行なう
     </tbody>
 </table>
         </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "Example System",
-  "version" : "1.0.0"
-}</pre></div>
-    </div>
-</div>
-<a name="put--gotapi-cameraregister-ondiscover" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">PUT /gotapi/cameraRegister/onDiscover</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">event</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">カメラ接続確認通知イベントを開始する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "Example System",
-  "version" : "1.0.0"
-}</pre></div>
-        <div class="operation-title">Event</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="2" class="mono">attribute</td><td>string</td><td>Yes</td><td><b>アトリビュート名</b><br></td></tr>
-        <tr><td colspan="2" class="mono">serviceId</td><td>string</td><td>Yes</td><td><b>サービスID</b><br></td></tr>
-        <tr><td colspan="2" class="mono">profile</td><td>string</td><td>Yes</td><td><b>プロファイル名</b><br></td></tr>
-        <tr><td colspan="2" class="mono">register</td><td>object</td><td>Yes</td><td><b>カメラ接続情報</b><br>カメラのネットワーク情報</td></tr>
-        <tr><td></td><td colspan="1" class="mono">ip</td><td>string</td><td>Yes</td><td><b>IPアドレス</b><br>カメラのIPアドレス</td></tr>
-        <tr><td></td><td colspan="1" class="mono">cameraName</td><td>string</td><td>Yes</td><td><b>ターゲット名</b><br>登録されているカメラの名前</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Event</div>
-        <div class="operation-content"><pre class="mono">{
-  "serviceId" : "Host.dummyId.localhost.deviceconnect.org",
-  "profile" : "cameraregister",
-  "attribute" : "ondiscover",
-  "register" : {
-    "ip" : "192.168.100.2",
-    "cameraName" : "FR100-ABCDEF"
-  }
-}</pre></div>
     </div>
 </div>
 <a name="get--gotapi-cameraregister-registerip" />
@@ -662,73 +182,6 @@ EXILIMカメラのWiFi接続設定を行なう
     "cameraName" : "RED_WIDERANGE_CAMERA"
   } ]
 }</pre></div>
-    </div>
-</div>
-<a name="delete--gotapi-cameraregister-registerip" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">DELETE /gotapi/cameraRegister/registerIp</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">EXILIMカメラのIPアドレスを登録解除する</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象デバイス</td></tr>
-                <tr><td class="mono">ip</td><td>string</td><td>No</td><td>カメラのIPアドレス。省略した場合は全解除となる。</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-    </div>
-</div>
-<a name="put--gotapi-cameraregister-registerip" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">PUT /gotapi/cameraRegister/registerIp</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">EXILIMカメラのIPアドレスと対応する名前を登録する</div>
-        <div class="operation-title">Description</div>
-        <div class="operation-content">IPのみの登録の場合は接続しているカメラから情報を取得する。ここで登録された名前はMediaStreamRecordingプロファイルで使用される。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象デバイス</td></tr>
-                <tr><td class="mono">ip</td><td>string</td><td>Yes</td><td>カメラのIPアドレス</td></tr>
-                <tr><td class="mono">cameraName</td><td>string</td><td>No</td><td>カメラの名前。省略した場合はカメラから情報取得する。</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>署名</b><br>レスポンスに対する署名。アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
     </div>
 </div>
 <h1 class="title">File Profile</h1>
@@ -862,18 +315,17 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
 <div class="profile-operations-content">
 <ul>
     <li><a href="#get--gotapi-mediastreamrecording-mediarecorder">GET /gotapi/mediaStreamRecording/mediaRecorder</a></li>
-    <li><a href="#get--gotapi-mediastreamrecording-onphoto">GET /gotapi/mediaStreamRecording/onPhoto</a></li>
-    <li><a href="#delete--gotapi-mediastreamrecording-onphoto">DELETE /gotapi/mediaStreamRecording/onPhoto</a></li>
     <li><a href="#put--gotapi-mediastreamrecording-onphoto">PUT /gotapi/mediaStreamRecording/onPhoto</a></li>
-    <li><a href="#delete--gotapi-mediastreamrecording-onrecordingchange">DELETE /gotapi/mediaStreamRecording/onRecordingChange</a></li>
+    <li><a href="#delete--gotapi-mediastreamrecording-onphoto">DELETE /gotapi/mediaStreamRecording/onPhoto</a></li>
+    <li><a href="#get--gotapi-mediastreamrecording-onphoto">GET /gotapi/mediaStreamRecording/onPhoto</a></li>
     <li><a href="#put--gotapi-mediastreamrecording-onrecordingchange">PUT /gotapi/mediaStreamRecording/onRecordingChange</a></li>
-    <li><a href="#get--gotapi-mediastreamrecording-options">GET /gotapi/mediaStreamRecording/options</a></li>
+    <li><a href="#delete--gotapi-mediastreamrecording-onrecordingchange">DELETE /gotapi/mediaStreamRecording/onRecordingChange</a></li>
     <li><a href="#put--gotapi-mediastreamrecording-options">PUT /gotapi/mediaStreamRecording/options</a></li>
-    <li><a href="#delete--gotapi-mediastreamrecording-preview">DELETE /gotapi/mediaStreamRecording/preview</a></li>
+    <li><a href="#get--gotapi-mediastreamrecording-options">GET /gotapi/mediaStreamRecording/options</a></li>
     <li><a href="#put--gotapi-mediastreamrecording-preview">PUT /gotapi/mediaStreamRecording/preview</a></li>
+    <li><a href="#delete--gotapi-mediastreamrecording-preview">DELETE /gotapi/mediaStreamRecording/preview</a></li>
     <li><a href="#post--gotapi-mediastreamrecording-record">POST /gotapi/mediaStreamRecording/record</a></li>
     <li><a href="#put--gotapi-mediastreamrecording-stop">PUT /gotapi/mediaStreamRecording/stop</a></li>
-    <li><a href="#put--gotapi-mediastreamrecording-stopselftimer">PUT /gotapi/mediaStreamRecording/stopSelfTimer</a></li>
     <li><a href="#post--gotapi-mediastreamrecording-takephoto">POST /gotapi/mediaStreamRecording/takePhoto</a></li>
 </ul>
 </div>
@@ -900,7 +352,7 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="2" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="2" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="2" class="mono">recorders</td><td>array(object)</td><td>Yes</td><td><b>レコーダーリスト</b><br>レコーダー情報の配列。</td></tr>
@@ -934,89 +386,6 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
 }</pre></div>
     </div>
 </div>
-<a name="get--gotapi-mediastreamrecording-onphoto" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">GET /gotapi/mediaStreamRecording/onPhoto</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">スマートデバイスの写真撮影通知イベントを取得する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
-        <tr><td colspan="2" class="mono">photo</td><td>object</td><td>Yes</td><td><b>写真データ</b><br>撮影された写真データ。</td></tr>
-        <tr><td></td><td colspan="1" class="mono">uri</td><td>string</td><td>No</td><td><b>URI</b><br>takePhoto APIと同じ</td></tr>
-        <tr><td></td><td colspan="1" class="mono">path</td><td>string</td><td>Yes</td><td><b>ファイルパス</b><br>takePhoto APIと同じ</td></tr>
-        <tr><td></td><td colspan="1" class="mono">mimeType</td><td>string</td><td>Yes</td><td><b>MIME Type</b><br>撮影された写真のMIME Type。動画・音声を識別するために使用する。</td></tr>
-        <tr><td colspan="2" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="2" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="2" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "Example System",
-  "version" : "1.0.0",
-  "photo" : {
-    "uri" : "Dummy URI",
-    "path" : "Dummy Path",
-    "mimeType" : "image/jpeg"
-  }
-}</pre></div>
-    </div>
-</div>
-<a name="delete--gotapi-mediastreamrecording-onphoto" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">DELETE /gotapi/mediaStreamRecording/onPhoto</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">event</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">スマートデバイスの写真撮影通知イベントを停止する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "Example System",
-  "version" : "1.0.0"
-}</pre></div>
-    </div>
-</div>
 <a name="put--gotapi-mediastreamrecording-onphoto" />
 <div class="operation-docs-block">
     <div class="operation-docs-header">PUT /gotapi/mediaStreamRecording/onPhoto</div>
@@ -1040,7 +409,7 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
@@ -1081,14 +450,14 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
 }</pre></div>
     </div>
 </div>
-<a name="delete--gotapi-mediastreamrecording-onrecordingchange" />
+<a name="delete--gotapi-mediastreamrecording-onphoto" />
 <div class="operation-docs-block">
-    <div class="operation-docs-header">DELETE /gotapi/mediaStreamRecording/onRecordingChange</div>
+    <div class="operation-docs-header">DELETE /gotapi/mediaStreamRecording/onPhoto</div>
     <div class="operation-docs-body">
         <div class="operation-title">API Pattern</div>
         <div class="operation-content">event</div>
         <div class="operation-title">Summary</div>
-        <div class="operation-content">動画録画イベント通知を終了する。</div>
+        <div class="operation-content">スマートデバイスの写真撮影通知イベントを停止する。</div>
         <div class="operation-title">Parameters</div>
         <div class="operation-content">
         <table>
@@ -1103,7 +472,7 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
@@ -1115,6 +484,52 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
   "result" : 0,
   "product" : "Example System",
   "version" : "1.0.0"
+}</pre></div>
+    </div>
+</div>
+<a name="get--gotapi-mediastreamrecording-onphoto" />
+<div class="operation-docs-block">
+    <div class="operation-docs-header">GET /gotapi/mediaStreamRecording/onPhoto</div>
+    <div class="operation-docs-body">
+        <div class="operation-title">API Pattern</div>
+        <div class="operation-content">one-shot</div>
+        <div class="operation-title">Summary</div>
+        <div class="operation-content">スマートデバイスの写真撮影通知イベントを取得する。</div>
+        <div class="operation-title">Parameters</div>
+        <div class="operation-content">
+        <table>
+            <tbody>
+                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="operation-title">Response</div>
+        <div class="operation-content">
+        <table>
+    <tbody>
+        <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
+        <tr><td colspan="2" class="mono">photo</td><td>object</td><td>Yes</td><td><b>写真データ</b><br>撮影された写真データ。</td></tr>
+        <tr><td></td><td colspan="1" class="mono">uri</td><td>string</td><td>No</td><td><b>URI</b><br>takePhoto APIと同じ</td></tr>
+        <tr><td></td><td colspan="1" class="mono">path</td><td>string</td><td>Yes</td><td><b>ファイルパス</b><br>takePhoto APIと同じ</td></tr>
+        <tr><td></td><td colspan="1" class="mono">mimeType</td><td>string</td><td>Yes</td><td><b>MIME Type</b><br>撮影された写真のMIME Type。動画・音声を識別するために使用する。</td></tr>
+        <tr><td colspan="2" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
+        <tr><td colspan="2" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
+        <tr><td colspan="2" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
+    </tbody>
+</table>
+        </div>
+        <div class="operation-title">Example Response</div>
+        <div class="operation-content"><pre class="mono">{
+  "result" : 0,
+  "product" : "Example System",
+  "version" : "1.0.0",
+  "photo" : {
+    "uri" : "Dummy URI",
+    "path" : "Dummy Path",
+    "mimeType" : "image/jpeg"
+  }
 }</pre></div>
     </div>
 </div>
@@ -1142,7 +557,7 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
@@ -1162,7 +577,7 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
         <tr><td colspan="2" class="mono">attribute</td><td>string</td><td>Yes</td><td><b>アトリビュート名</b><br></td></tr>
         <tr><td colspan="2" class="mono">media</td><td>object</td><td>Yes</td><td><b>レコーディング情報</b><br>レコーディング情報</td></tr>
-        <tr><td></td><td colspan="1" class="mono">status</td><td>string</td><td>Yes</td><td><b>レコーディングの状態</b><br>レコーディングの状態を識別する文字列。開始時にrecording、セルフタイマー開始時にcaptureReadyが設定され、 通常、セルフタイマー終了時ともにstopが設定される</td></tr>
+        <tr><td></td><td colspan="1" class="mono">status</td><td>string</td><td>Yes</td><td><b>レコーディングの状態</b><br>レコーディングの状態を識別する文字列。開始時にrecording, 終了時にstopが設定される。</td></tr>
         <tr><td></td><td colspan="1" class="mono">path</td><td>string</td><td>No</td><td><b>ファイルパス</b><br>撮影された動画のファイルパス。File APIのパラメータとして使用可能。非API要因で録画が終了した場合に有効</td></tr>
         <tr><td colspan="2" class="mono">serviceId</td><td>string</td><td>Yes</td><td><b>サービスID</b><br></td></tr>
         <tr><td colspan="2" class="mono">profile</td><td>string</td><td>Yes</td><td><b>プロファイル名</b><br></td></tr>
@@ -1177,6 +592,83 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
   "media" : {
     "status" : "stop"
   }
+}</pre></div>
+    </div>
+</div>
+<a name="delete--gotapi-mediastreamrecording-onrecordingchange" />
+<div class="operation-docs-block">
+    <div class="operation-docs-header">DELETE /gotapi/mediaStreamRecording/onRecordingChange</div>
+    <div class="operation-docs-body">
+        <div class="operation-title">API Pattern</div>
+        <div class="operation-content">event</div>
+        <div class="operation-title">Summary</div>
+        <div class="operation-content">動画録画イベント通知を終了する。</div>
+        <div class="operation-title">Parameters</div>
+        <div class="operation-content">
+        <table>
+            <tbody>
+                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="operation-title">Response</div>
+        <div class="operation-content">
+        <table>
+    <tbody>
+        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
+        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
+        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
+        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
+    </tbody>
+</table>
+        </div>
+        <div class="operation-title">Example Response</div>
+        <div class="operation-content"><pre class="mono">{
+  "result" : 0,
+  "product" : "Example System",
+  "version" : "1.0.0"
+}</pre></div>
+    </div>
+</div>
+<a name="put--gotapi-mediastreamrecording-options" />
+<div class="operation-docs-block">
+    <div class="operation-docs-header">PUT /gotapi/mediaStreamRecording/options</div>
+    <div class="operation-docs-body">
+        <div class="operation-title">API Pattern</div>
+        <div class="operation-content">one-shot</div>
+        <div class="operation-title">Summary</div>
+        <div class="operation-content">スマートデバイスからサポートしている写真撮影、動画撮影や音声録音のオプションを設定する。</div>
+        <div class="operation-title">Parameters</div>
+        <div class="operation-content">
+        <table>
+            <tbody>
+                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
+                <tr><td class="mono">target</td><td>string</td><td>No</td><td>ターゲット。レコーダーを識別するID。省略された場合にはデフォルトのレコーダーを使用する。デバイスが音声・動画の両方のレコーダーをサポートする場合、どちらのレコーダーが使用されるかどうかはデバイスプラグイン依存とする。</td></tr>
+                <tr><td class="mono">previewMaxFrameRate</td><td>float</td><td>No</td><td>プレビュー時の最大フレームレート。単位はfps。範囲は0.0より大きい小数値。</td></tr>
+                <tr><td class="mono">mimeType</td><td>string</td><td>Yes</td><td>MimeType。動画録画・音声録音するときのエンコードするタイプ。</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="operation-title">Response</div>
+        <div class="operation-content">
+        <table>
+    <tbody>
+        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
+        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
+        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
+        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
+    </tbody>
+</table>
+        </div>
+        <div class="operation-title">Example Response</div>
+        <div class="operation-content"><pre class="mono">{
+  "result" : 0,
+  "product" : "Example System",
+  "version" : "1.0.0"
 }</pre></div>
     </div>
 </div>
@@ -1203,18 +695,12 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="2">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="2" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="2" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="2" class="mono">previewSizes</td><td>array(object)</td><td>No</td><td><b>プレビュー時の解像度の一覧</b><br>プレビューで利用可能な解像度の一覧。録音の場合、またはプレビューを 提供しない場合は省略可。プラグイン側でリサイズすることでサポートするサイズも含めてよい。</td></tr>
         <tr><td></td><td colspan="1" class="mono">width</td><td>integer</td><td>Yes</td><td><b>横幅</b><br>画像の横幅。単位はピクセル。</td></tr>
         <tr><td></td><td colspan="1" class="mono">height</td><td>integer</td><td>Yes</td><td><b>縦幅</b><br>画像の縦幅。単位はピクセル。</td></tr>
-        <tr><td colspan="2" class="mono">imageSizes</td><td>array(object)</td><td>No</td><td><b>サポートするの解像度の一覧</b><br>サポートする画像の解像度の一覧。</td></tr>
-        <tr><td></td><td colspan="1" class="mono">width</td><td>integer</td><td>Yes</td><td><b>横幅</b><br>画像の横幅。単位はピクセル。</td></tr>
-        <tr><td></td><td colspan="1" class="mono">height</td><td>integer</td><td>Yes</td><td><b>縦幅</b><br>画像の縦幅。単位はピクセル。</td></tr>
         <tr><td colspan="2" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-        <tr><td colspan="2" class="mono">recordSizes</td><td>object</td><td>No</td><td><b>解像度</b><br>画像の解像度。</td></tr>
-        <tr><td></td><td colspan="1" class="mono">width</td><td>integer</td><td>Yes</td><td><b>横幅</b><br>画像の横幅。単位はピクセル。</td></tr>
-        <tr><td></td><td colspan="1" class="mono">height</td><td>integer</td><td>Yes</td><td><b>縦幅</b><br>画像の縦幅。単位はピクセル。</td></tr>
         <tr><td colspan="2" class="mono">mimeType</td><td>array(string)</td><td>Yes</td><td><b>MIME Type</b><br>録画・録音する際のエンコードするタイプの一覧</td></tr>
         <tr><td colspan="2" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="2" class="mono">previewMaxFrameRate</td><td>integer</td><td>No</td><td><b>Preview Max Frame Rate</b><br>プレビュー時の最大フレームレート。単位はfps。</td></tr>
@@ -1231,104 +717,8 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
     "width" : 320,
     "height" : 240
   } ],
-  "mimeType" : [ "video/x-mjpeg" ],
-  "imageSize" : [ {
-    "width" : 226,
-    "height" : 160
-  }, {
-    "width" : 512,
-    "height" : 384
-  }, {
-    "width" : 320,
-    "height" : 240
-  }, {
-    "width" : 640,
-    "height" : 480
-  }, {
-    "width" : 1280,
-    "height" : 960
-  } ],
-  "recordSize" : {
-    "width" : 640,
-    "height" : 480
-  }
+  "mimeType" : [ "image/jpeg", "video/x-mjpeg" ]
 }</pre></div>
-    </div>
-</div>
-<a name="put--gotapi-mediastreamrecording-options" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">PUT /gotapi/mediaStreamRecording/options</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">スマートデバイスからサポートしている写真撮影、動画撮影や音声録音のオプションを設定する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td>サービスID。取得対象スマートデバイス</td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td>ターゲット。レコーダーを識別するID。省略された場合にはデフォルトのレコーダーを使用する。デバイスが音声・動画の両方のレコーダーをサポートする場合、どちらのレコーダーが使用されるかどうかはデバイスプラグイン依存とする。</td></tr>
-                <tr><td class="mono">previewMaxFrameRate</td><td>float</td><td>No</td><td>プレビュー時の最大フレームレート。単位はfps。範囲は0.0より大きい小数値。</td></tr>
-                <tr><td class="mono">mimeType</td><td>string</td><td>Yes</td><td>MimeType。動画録画・音声録音するときのエンコードするタイプ。</td></tr>
-                <tr><td class="mono">imageHeight</td><td>integer</td><td>No</td><td>撮影・録画時のサイズ(h)ピクセル</td></tr>
-                <tr><td class="mono">imageWidth</td><td>integer</td><td>No</td><td>撮影・録画時のサイズ(ｗ)ピクセル</td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-        <div class="operation-title">Example Response</div>
-        <div class="operation-content"><pre class="mono">{
-  "result" : 0,
-  "product" : "Example System",
-  "version" : "1.0.0"
-}</pre></div>
-    </div>
-</div>
-<a name="delete--gotapi-mediastreamrecording-preview" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">DELETE /gotapi/mediaStreamRecording/preview</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">streaming</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">プレビューを終了する</div>
-        <div class="operation-title">Description</div>
-        <div class="operation-content">カメラのリモート撮影を終了し、ライブビュー画像の作成を終了する。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td></td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
     </div>
 </div>
 <a name="put--gotapi-mediastreamrecording-preview" />
@@ -1356,10 +746,44 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="1" class="mono">uri</td><td>string</td><td>Yes</td><td><b>プレビュー配信URI</b><br>開始したプレビューの配信用URI。形式はMotionJPEGとする。</td></tr>
+        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
+    </tbody>
+</table>
+        </div>
+    </div>
+</div>
+<a name="delete--gotapi-mediastreamrecording-preview" />
+<div class="operation-docs-block">
+    <div class="operation-docs-header">DELETE /gotapi/mediaStreamRecording/preview</div>
+    <div class="operation-docs-body">
+        <div class="operation-title">API Pattern</div>
+        <div class="operation-content">streaming</div>
+        <div class="operation-title">Summary</div>
+        <div class="operation-content">プレビューを終了する</div>
+        <div class="operation-title">Description</div>
+        <div class="operation-content">カメラのリモート撮影を終了し、ライブビュー画像の作成を終了する。</div>
+        <div class="operation-title">Parameters</div>
+        <div class="operation-content">
+        <table>
+            <tbody>
+                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
+                <tr><td class="mono">target</td><td>string</td><td>No</td><td></td></tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="operation-title">Response</div>
+        <div class="operation-content">
+        <table>
+    <tbody>
+        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
+        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
+        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
     </tbody>
 </table>
@@ -1391,7 +815,7 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
@@ -1425,42 +849,8 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="1" class="mono">path</td><td>string</td><td>Yes</td><td><b>ファイルパス</b><br>撮影された動画のファイルパス。File APIのパラメータとして使用可能。</td></tr>
-        <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
-        <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
-        <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
-    </tbody>
-</table>
-        </div>
-    </div>
-</div>
-<a name="put--gotapi-mediastreamrecording-stopselftimer" />
-<div class="operation-docs-block">
-    <div class="operation-docs-header">PUT /gotapi/mediaStreamRecording/stopSelfTimer</div>
-    <div class="operation-docs-body">
-        <div class="operation-title">API Pattern</div>
-        <div class="operation-content">one-shot</div>
-        <div class="operation-title">Summary</div>
-        <div class="operation-content">セルフタイマーをキャンセルする</div>
-        <div class="operation-title">Description</div>
-        <div class="operation-content">セルフタイマーをキャンセルする。</div>
-        <div class="operation-title">Parameters</div>
-        <div class="operation-content">
-        <table>
-            <tbody>
-                <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-                <tr><td class="mono">serviceId</td><td>string</td><td>Yes</td><td></td></tr>
-                <tr><td class="mono">target</td><td>string</td><td>No</td><td></td></tr>
-            </tbody>
-        </table>
-        </div>
-        <div class="operation-title">Response</div>
-        <div class="operation-content">
-        <table>
-    <tbody>
-        <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
         <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
         <tr><td colspan="1" class="mono">hmac</td><td>string</td><td>No</td><td><b>レスポンスに対する署名</b><br>アプリケーション側から事前にHMACキーを共有されていた場合は必須。</td></tr>
@@ -1494,7 +884,7 @@ EXILIMカメラによる写真撮影、動画録画または音声録音など�
         <table>
     <tbody>
         <tr><th colspan="1">Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0:  正常応答<br>0以外:  異常応答</td></tr>
+        <tr><td colspan="1" class="mono">result</td><td>integer</td><td>Yes</td><td><b>処理結果</b><br>0: 正常応答<br>0以外: 異常応答</td></tr>
         <tr><td colspan="1" class="mono">path</td><td>string</td><td>Yes</td><td><b>ファイルパス</b><br>撮影された写真のファイルパス。File APIのパラメータとして使用可能。こちらはカメラから直接取得するため、いつでも実行可能。</td></tr>
         <tr><td colspan="1" class="mono">product</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムの名前</b><br></td></tr>
         <tr><td colspan="1" class="mono">version</td><td>string</td><td>Yes</td><td><b>DeviceConnectシステムのバージョン名</b><br></td></tr>
